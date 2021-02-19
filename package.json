@@ -1,6 +1,6 @@
 {
     "name": "srcmg",
-    "version": "1.0.3",
+    "version": "1.0.6",
     "description": "source manager",
     "main": "./dist/index.js",
     "scripts": {

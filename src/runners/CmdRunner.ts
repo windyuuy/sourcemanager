@@ -49,7 +49,7 @@ export class CmdRunner {
 				process.chdir(cwd)
 			}
 		} else {
-			return this.runRecords(cmdOptions)
+			return this.runInWorkDir(cmdOptions)
 		}
 	}
 
@@ -57,11 +57,11 @@ export class CmdRunner {
 	 * 在工作目录下执行
 	 * @param cmdOptions 
 	 */
-	runInWorkDir(cmdOptions: TSMCmdOptions) {
+	runInWorkDir(cmdOptions: TSMCmdOptions): Promise<CmdResult> {
 		if (cmdOptions.init) {
-			this.runInit(cmdOptions)
+			return this.runInit(cmdOptions)
 		} else {
-			this.runRecords(cmdOptions)
+			return this.runRecords(cmdOptions)
 		}
 	}
 
@@ -69,18 +69,22 @@ export class CmdRunner {
 	 * 执行初始化命令
 	 * @param cmdOptions 
 	 */
-	runInit(cmdOptions: TSMCmdOptions) {
+	runInit(cmdOptions: TSMCmdOptions): Promise<CmdResult> {
 		fse.writeFileSync(".sm2/sm2.json", `{
     "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
     "buildList": []
 }`)
+		return new Promise<CmdResult>((resolve, reject) => {
+			let result = new CmdResult()
+			resolve(result)
+		})
 	}
 
 	/**
 	 * 执行相关记录
 	 * @param cmdOptions 
 	 */
-	runRecords(cmdOptions: TSMCmdOptions) {
+	runRecords(cmdOptions: TSMCmdOptions): Promise<CmdResult> {
 		let configFile = ConfigFile
 		let workPath = process.cwd()
 		let configPath = `${workPath}/${configFile}`
