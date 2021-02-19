@@ -1,6 +1,6 @@
 {
     "title": "JSON schema for the sm2 configuration file",
-    "$schema": "https://github.com/windyuuy/sourcemanager/blob/main/design/sm2.schema.json",
+    "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
     "type": "object",
     "fileMatch": ["sm2.json"],
     "properties": {

@@ -1,5 +1,5 @@
 {
-    "$schema": ".../../../../../../design/sm2.schema.json",
+    "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
     "buildList": [{
         "name": "fsync-down",
         "vcs": "folder",
