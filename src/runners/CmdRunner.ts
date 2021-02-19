@@ -70,6 +70,7 @@ export class CmdRunner {
 	 * @param cmdOptions 
 	 */
 	runInit(cmdOptions: TSMCmdOptions): Promise<CmdResult> {
+		// 创建默认的配置
 		fse.writeFileSync(".sm2/sm2.json", `{
     "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
     "buildList": []
