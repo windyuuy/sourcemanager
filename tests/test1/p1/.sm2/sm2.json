@@ -1,4 +1,5 @@
 {
+    "$schema": ".../../../../../../design/sm2.schema.json",
     "buildList": [{
         "name": "fsync-down",
         "vcs": "folder",

@@ -66,13 +66,13 @@ export class CopyRoute {
 }
 
 /**
- * 发布文件的克隆路由
+ * 发布文件的克隆路由列表
  */
 export class DistCloneRoute extends CopyRoute {
 }
 
 /**
- * 发布文件上传路由
+ * 发布文件上传路由列表
  */
 export class DistUploadRoute extends CopyRoute {
 }

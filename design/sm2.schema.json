@@ -1,4 +1,6 @@
 {
+    "title": "JSON schema for the sm2 configuration file",
+    "$schema": "https://github.com/windyuuy/sourcemanager/blob/main/design/sm2.schema.json",
     "type": "object",
     "fileMatch": ["sm2.json"],
     "properties": {
@@ -41,58 +43,70 @@
                         "description": "密码"
                     },
                     "stages": {
-                        "type": "object",
-                        "properties": {
-                            "stage": {
-                                "type": "string",
-                                "description": "构建阶段"
-                            }
-                        },
-                        "description": "克隆路由"
+                        "type": "array",
+                        "description": "",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "stage": {
+                                    "type": "string",
+                                    "description": "构建阶段"
+                                }
+                            },
+                            "description": "通过命令行形式覆盖构建阶段"
+                        }
                     },
                     "uploadRoutes": {
-                        "type": "object",
-                        "properties": {
-                            "fromFile": {
-                                "type": "string",
-                                "description": "待发布文件"
+                        "type": "array",
+                        "description": "发布文件上传路由列表",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "fromFile": {
+                                    "type": "string",
+                                    "description": "待发布文件"
+                                },
+                                "fromFolder": {
+                                    "type": "string",
+                                    "description": "上传目录"
+                                },
+                                "toFile": {
+                                    "type": "string",
+                                    "description": "上传文件目标"
+                                },
+                                "toFolder": {
+                                    "type": "string",
+                                    "description": "上传目录目标"
+                                }
                             },
-                            "fromFolder": {
-                                "type": "string",
-                                "description": "上传目录"
-                            },
-                            "toFile": {
-                                "type": "string",
-                                "description": "上传文件目标"
-                            },
-                            "toFolder": {
-                                "type": "string",
-                                "description": "上传目录目标"
-                            }
-                        },
-                        "description": "克隆路由"
+                            "description": "克隆路由"
+                        }
                     },
                     "cloneRoutes": {
-                        "type": "object",
-                        "properties": {
-                            "fromFile": {
-                                "type": "string",
-                                "description": "待发布文件"
+                        "type": "array",
+                        "description": "发布文件的克隆路由列表",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "fromFile": {
+                                    "type": "string",
+                                    "description": "待发布文件"
+                                },
+                                "fromFolder": {
+                                    "type": "string",
+                                    "description": "上传目录"
+                                },
+                                "toFile": {
+                                    "type": "string",
+                                    "description": "上传文件目标"
+                                },
+                                "toFolder": {
+                                    "type": "string",
+                                    "description": "上传目录目标"
+                                }
                             },
-                            "fromFolder": {
-                                "type": "string",
-                                "description": "上传目录"
-                            },
-                            "toFile": {
-                                "type": "string",
-                                "description": "上传文件目标"
-                            },
-                            "toFolder": {
-                                "type": "string",
-                                "description": "上传目录目标"
-                            }
-                        },
-                        "description": "克隆路由"
+                            "description": "克隆路由"
+                        }
                     }
                 }
             }
