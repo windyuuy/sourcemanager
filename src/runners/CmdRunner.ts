@@ -1,4 +1,4 @@
-import { SMCmdOptions, TSMCmdOptions } from "../cmdline/SMCmd";
+import { SMCmdOptions, TSMCmdOptions } from "../cmdline/SMCmdOptions";
 import { ConfigFile, ConfigFolder, ConfigLoader } from "../config/ConfigLoader";
 import { RunOptions } from "../config/RunOptions";
 import { ConfigRunner } from "./ConfigRunner";

@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "fileMatch": ["sm2.json"],
+    "properties": {
+        "buildList": {
+            "type": "array",
+            "description": "构建列表",
+            "uniqueItems": true,
+            "items": {
+                "type": "object",
+                "description": "一行记录",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "标志记录名,如果出现重名, 按照广度优先遍历"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "构建类型",
+                        "anyOf": [{
+                            "enum": ["pre", "cmd"]
+                        }]
+                    },
+                    "vcs": {
+                        "type": "string",
+                        "description": "预定义支持的版本控制系统",
+                        "anyOf": [{
+                            "enum": ["unknown", "folder", "svn", "git", "ccf", "oss"]
+                        }]
+                    },
+                    "sourceUrl": {
+                        "type": "string",
+                        "description": "源链接"
+                    },
+                    "account": {
+                        "type": "string",
+                        "description": "账号"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "密码"
+                    },
+                    "stages": {
+                        "type": "object",
+                        "properties": {
+                            "stage": {
+                                "type": "string",
+                                "description": "构建阶段"
+                            }
+                        },
+                        "description": "克隆路由"
+                    },
+                    "uploadRoutes": {
+                        "type": "object",
+                        "properties": {
+                            "fromFile": {
+                                "type": "string",
+                                "description": "待发布文件"
+                            },
+                            "fromFolder": {
+                                "type": "string",
+                                "description": "上传目录"
+                            },
+                            "toFile": {
+                                "type": "string",
+                                "description": "上传文件目标"
+                            },
+                            "toFolder": {
+                                "type": "string",
+                                "description": "上传目录目标"
+                            }
+                        },
+                        "description": "克隆路由"
+                    },
+                    "cloneRoutes": {
+                        "type": "object",
+                        "properties": {
+                            "fromFile": {
+                                "type": "string",
+                                "description": "待发布文件"
+                            },
+                            "fromFolder": {
+                                "type": "string",
+                                "description": "上传目录"
+                            },
+                            "toFile": {
+                                "type": "string",
+                                "description": "上传文件目标"
+                            },
+                            "toFolder": {
+                                "type": "string",
+                                "description": "上传目录目标"
+                            }
+                        },
+                        "description": "克隆路由"
+                    }
+                }
+            }
+        }
+    }
+}

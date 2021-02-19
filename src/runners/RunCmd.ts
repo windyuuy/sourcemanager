@@ -1,4 +1,4 @@
-import { SMCmdOptions } from "../cmdline/SMCmd"
+import { SMCmdOptions } from "../cmdline/SMCmdOptions"
 import { CmdRunner } from "./CmdRunner"
 
 /**
