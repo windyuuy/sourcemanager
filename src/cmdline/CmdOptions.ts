@@ -14,6 +14,7 @@ export class CmdOptions<T> {
 			.option('-c, --config <type>', 'input config file')
 			.option('-t, --stage <type>', 'execute stage')
 			.option('-p, --project-path <type>', 'project path')
+			.option('--init', 'init{create configfile}')
 
 		program.parse(argv);
 		const options = program.opts();

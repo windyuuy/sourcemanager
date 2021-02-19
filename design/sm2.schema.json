@@ -44,7 +44,7 @@
                     },
                     "stages": {
                         "type": "array",
-                        "description": "",
+                        "description": "自定义构建阶段",
                         "items": {
                             "type": "object",
                             "properties": {

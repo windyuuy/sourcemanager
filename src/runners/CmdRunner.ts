@@ -3,6 +3,7 @@ import { ConfigFile, ConfigFolder, ConfigLoader } from "../config/ConfigLoader";
 import { RunOptions } from "../config/RunOptions";
 import { ConfigRunner } from "./ConfigRunner";
 import * as fs from "fs";
+import * as fse from "fse";
 import { FailedRoute, SyncResult } from "./IRecordSync";
 
 /**
@@ -48,10 +49,38 @@ export class CmdRunner {
 				process.chdir(cwd)
 			}
 		} else {
-			return this.runInWorkDir(cmdOptions)
+			return this.runRecords(cmdOptions)
 		}
 	}
+
+	/**
+	 * 在工作目录下执行
+	 * @param cmdOptions 
+	 */
 	runInWorkDir(cmdOptions: TSMCmdOptions) {
+		if (cmdOptions.init) {
+			this.runInit(cmdOptions)
+		} else {
+			this.runRecords(cmdOptions)
+		}
+	}
+
+	/**
+	 * 执行初始化命令
+	 * @param cmdOptions 
+	 */
+	runInit(cmdOptions: TSMCmdOptions) {
+		fse.writeFileSync(".sm2/sm2.json", `{
+    "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
+    "buildList": []
+}`)
+	}
+
+	/**
+	 * 执行相关记录
+	 * @param cmdOptions 
+	 */
+	runRecords(cmdOptions: TSMCmdOptions) {
 		let configFile = ConfigFile
 		let workPath = process.cwd()
 		let configPath = `${workPath}/${configFile}`

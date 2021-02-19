@@ -29,6 +29,10 @@ export class TSMCmdOptions {
 	 * 项目路径
 	 */
 	projectPath: string;
+	/**
+	 * 初始化配置
+	 */
+	init: boolean;
 }
 
 export const SMCmdOptions = new CmdOptions<TSMCmdOptions>()
