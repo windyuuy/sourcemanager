@@ -1,0 +1,31 @@
+{
+    "buildList": [{
+        "name": "fsync-down",
+        "vcs": "folder",
+        "sourceUrl": "D:/DATA/Codes/SourceManager/tests/test1/p2",
+        "cloneRoutes": [{
+            "fromFolder": "ffrom",
+            "toFolder": "tto"
+        }, {
+            "fromFile": "ffrom.json",
+            "toFolder": "ttoJson"
+        }, {
+            "fromFile": "ffrom.json",
+            "toFile": "tto.json"
+        }]
+    }, {
+        "name": "fsync-up",
+        "vcs": "folder",
+        "sourceUrl": "D:/DATA/Codes/SourceManager/tests/test1/p2",
+        "uploadRoutes": [{
+            "fromFolder": "ffrom",
+            "toFolder": "tto"
+        }, {
+            "fromFile": "ffrom.json",
+            "toFolder": "ttoJson"
+        }, {
+            "fromFile": "ffrom.json",
+            "toFile": "tto.json"
+        }]
+    }]
+}
