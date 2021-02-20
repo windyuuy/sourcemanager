@@ -12,7 +12,8 @@ export class CmdOptions<T> {
 		program
 			.option('-w, --work-dir <type>', 'work dir')
 			.option('-c, --config <type>', 'input config file')
-			.option('-t, --stage <type>', 'execute stage')
+			.option('-t, --tagNames <type>', 'execute tags')
+			.option('-r, --recordNames <type>', 'execute records')
 			.option('-p, --project-path <type>', 'project path')
 			.option('--init', 'init{create configfile}')
 

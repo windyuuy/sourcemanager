@@ -153,16 +153,16 @@ export class FolderSync extends RecordSyncBase {
 	}
 
 	execute(record: BuildRecord, runConfig: RunOptions): Promise<SyncResult> {
-		let stage = runConfig.stage
+		let cmd = record.cmd
 
 		let result: Promise<SyncResult>
-		switch (stage) {
-			case "clone": {
+		switch (cmd) {
+			case "cloneSource": {
 				result = this.cloneSource(record, runConfig)
 				break
 			}
 			default: {
-				throw new Error(`unsupported build stage <${stage}>`)
+				throw new Error(`unsupported build stage <${cmd}>`)
 			}
 		}
 		return result

@@ -87,6 +87,11 @@ export class BuildRecord {
 	 */
 	name: string = ""
 
+	/**
+	 * 标签列表
+	 */
+	tags: string[] = []
+
 	static _idAcc = 1
 	/**
 	 * 运行时记录ID, 应对重名问题
@@ -153,6 +158,11 @@ export class BuildRecord {
 	 */
 	uploadRoutes: DistUploadRoute[] = []
 
+	/**
+	 * 执行的命令
+	 */
+	cmd: string
+
 	loadFrom(json: BuildRecord) {
 		this.name = json.name
 		this.enable = json.enable ?? this.enable
@@ -168,6 +178,10 @@ export class BuildRecord {
 		this.uploadRoutes = (json.uploadRoutes ?? []).map(json => {
 			return new DistUploadRoute().loadFrom(json)
 		})
+		if (json.tags) {
+			this.tags = json.tags.concat()
+		}
+		this.cmd = json.cmd
 		return this
 	}
 }

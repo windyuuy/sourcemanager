@@ -105,28 +105,14 @@ export class CmdRunner {
 		let configRunner = new ConfigRunner()
 
 		let tasks: Promise<SyncResult>[] = []
-		if (cmdOptions.record) {
-			// 执行单条记录
-			let runOptions = new RunOptions()
-			runOptions.recordName = cmdOptions.record
-			runOptions.configPath = configPath
-			runOptions.workPath = workPath
-			runOptions.stage = cmdOptions.stage
-			let result = configRunner.run(config, runOptions)
-			tasks.push(result)
-		} else {
-			// 如果执行多个记录, 那么只保证单个记录的执行完整性
-			let results = config.buildList.map(record => {
-				let runOptions = new RunOptions()
-				runOptions.recordName = record.name
-				runOptions.configPath = configPath
-				runOptions.workPath = workPath
-				runOptions.stage = cmdOptions.stage
-				let result = configRunner.runRecord(record, runOptions)
-				return result
-			})
-			tasks.push(...results)
-		}
+		// 执行匹配的记录
+		let runOptions = new RunOptions()
+		runOptions.setRecordNames(cmdOptions.recordNames)
+		runOptions.configPath = configPath
+		runOptions.workPath = workPath
+		runOptions.setRecordTags(cmdOptions.recordTags)
+		let results = configRunner.run(config, runOptions)
+		tasks.push(...results)
 
 		// 逐条合并结果
 		let result = new CmdResult()

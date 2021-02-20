@@ -10,9 +10,9 @@ export class TSMCmdOptions {
 	 */
 	version: string;
 	/**
-	 * 指定记录名
+	 * 指定记录名列表
 	 */
-	record?: string;
+	recordNames?: string;
 	/**
 	 * 配置文件
 	 */
@@ -22,9 +22,9 @@ export class TSMCmdOptions {
 	 */
 	workDir?: string;
 	/**
-	 * 指定阶段
+	 * 指定记录列表
 	 */
-	stage: VscStage;
+	recordTags?: string;
 	/**
 	 * 项目路径
 	 */
