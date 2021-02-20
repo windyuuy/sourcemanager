@@ -1,7 +1,9 @@
 {
-    "$schema": "https://raw.githubusercontent.com/windyuuy/sourcemanager/main/design/sm2.schema.json",
+    "$schema": "../../../../design/sm2.schema.json",
     "buildList": [{
         "name": "fsync-down",
+        "cmd": "cloneSource",
+        "tags": ["deps"],
         "vcs": "folder",
         "sourceUrl": "D:/DATA/Codes/SourceManager/tests/test1/p2",
         "cloneRoutes": [{
@@ -16,6 +18,8 @@
         }]
     }, {
         "name": "fsync-up",
+        "cmd": "uploadSource",
+        "tags": ["push"],
         "vcs": "folder",
         "sourceUrl": "D:/DATA/Codes/SourceManager/tests/test1/p2",
         "uploadRoutes": [{

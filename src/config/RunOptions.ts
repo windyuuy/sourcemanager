@@ -23,7 +23,9 @@ export class RunOptions {
 	 * @param names 
 	 */
 	setRecordNames(names: string) {
-		this.recordNames = names.split(",")
+		if (names) {
+			this.recordNames = names.split(",")
+		}
 	}
 	/**
 	 * 执行器工作路径
@@ -38,7 +40,9 @@ export class RunOptions {
 	 * @param tags 
 	 */
 	setRecordTags(tags: string) {
-		this.recordTags = tags.split(",")
+		if (tags) {
+			this.recordTags = tags.split(",")
+		}
 	}
 
 	/**

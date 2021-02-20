@@ -9,13 +9,15 @@ import { RecordSyncFactory } from "./SyncFactory";
 export class ConfigRunner {
 	run(config: ConfigStruct, runConfig: RunOptions): Promise<SyncResult>[] {
 		let records = config.buildList.filter(config => {
-			let matchedName = config.name in runConfig.recordNames
-			let matchedTag = false
-			config.tags.forEach(tag => {
-				if (tag in runConfig.recordTags) {
-					matchedTag = true
-				}
-			})
+			let matchedName = runConfig.recordNames.length == 0 || (runConfig.recordNames.indexOf(config.name) >= 0)
+			let matchedTag = config.tags.length == 0
+			if (!matchedTag) {
+				config.tags.forEach(tag => {
+					if (runConfig.recordTags.indexOf(tag) >= 0) {
+						matchedTag = true
+					}
+				})
+			}
 			let matched = matchedTag && matchedName
 			return matched
 		})

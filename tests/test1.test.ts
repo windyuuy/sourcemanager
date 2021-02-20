@@ -5,7 +5,7 @@ test('test folder', () => {
     runCustomCmd([
         "", "",
         "-w", "./tests/test1/p1",
-        "-t", "clone",
+        "-t", "deps",
     ])
 });
 
