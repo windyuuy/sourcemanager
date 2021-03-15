@@ -55,7 +55,7 @@ export class FolderSync extends RecordSyncBase {
 						if (route.fromFolder) {
 							let fromPath = `${sourceUrl}/${route.fromFolder}`
 							fromFolder = route.fromFolder
-							if (fs.existsSync(route.fromFolder)) {
+							if (fs.existsSync(fromPath)) {
 								// 扫描源路径
 								let folderFiles = glob.sync(fromPath + "/**/*", { absolute: false })
 								let rfiles = folderFiles.map(f => {
