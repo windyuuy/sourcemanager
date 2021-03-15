@@ -32,5 +32,15 @@
             "fromFile": "ffrom.json",
             "toFile": "tto.json"
         }]
+    }, {
+        "name": "test-failed",
+        "cmd": "cloneSource",
+        "tags": ["deps"],
+        "vcs": "folder",
+        "sourceUrl": "D:/DATA/Codes/SourceManager/tests/test1/p00",
+        "cloneRoutes": [{
+            "fromFolder": "ffrom2",
+            "toFolder": "tto2"
+        }]
     }]
 }

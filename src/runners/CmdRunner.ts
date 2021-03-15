@@ -22,6 +22,9 @@ export class CmdResult {
 		this.recordResult.forEach(result => {
 			if ((!result.skipped) && (!result.succeed)) {
 				console.error(`- [sm2] run record failed: ${result.recordName}`)
+				result.failedRoutes.forEach((failure, index) => {
+					console.error(`- [sm2] \t failure[${index}]: ${failure.reason}`)
+				})
 			}
 		})
 		let allCount = this.recordResult.length
