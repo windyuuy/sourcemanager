@@ -23,7 +23,7 @@ export class CmdResult {
 			if ((!result.skipped) && (!result.succeed)) {
 				console.error(`- [sm2] run record failed: ${result.recordName}`)
 				result.failedRoutes.forEach((failure, index) => {
-					console.error(`- [sm2] \t failure[${index}]: ${failure.reason}`)
+					console.error(`- [sm2][${result.recordName}] failure[${index}]: ${failure.reason}`)
 				})
 			}
 		})
